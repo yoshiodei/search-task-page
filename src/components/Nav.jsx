@@ -23,7 +23,7 @@ const Nav = ({state, changeDate, changeOrder, changeCategory, changeSearch}) => 
     }
 
     return (
-        <nav>
+        <nav id="top">
             <form className='form'>
             
                 <div className='form__input-div'>
