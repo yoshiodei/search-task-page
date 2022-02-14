@@ -3,6 +3,10 @@
   padding-top: 8vh;
 }
 
+.main__to-top-btn {
+  display: none;
+}
+
 .main__header-div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -305,6 +309,18 @@
   .main {
     min-height: 67vh;
     padding-top: 4vh;
+  }
+  .main__error-div {
+    padding: 25px 10vw 0;
+  }
+  .main__to-top-btn {
+    display: block;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 15px 0;
+    font-weight: 600;
+    color: #515152;
+    text-decoration: none;
   }
   .main__header-div {
     display: -webkit-box;
