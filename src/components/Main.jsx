@@ -147,6 +147,12 @@ const Main = ({state, nextPage, prevPage, setPage , updateState, updateOrder}) =
                     </div>
                 )
             }
+            {
+                data.length > 0 && !state.error && !state.loading &&
+                (
+            <a href="#top" className='main__to-top-btn'>Move to top</a>
+            )
+            }
         </main>
     );
 }
