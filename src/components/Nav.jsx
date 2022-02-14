@@ -34,6 +34,7 @@ const Nav = ({state, changeDate, changeOrder, changeCategory, changeSearch}) => 
                         className='form__input-div__input'
                         value={state.search}
                         onChange={handleSearch}
+                        data-testid="searchBar"
                     />
                     <i class="bi bi-search form__input-div__custom-icon" ></i>
                 </div>

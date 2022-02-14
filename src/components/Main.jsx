@@ -5,7 +5,7 @@ import Loading from './Loading';
 import Error from './Error';
 import Emptylist from './EmptyList';
 import { connect } from 'react-redux';
-import { nextPage, prevPage, setPage, updateState, updateOrder } from '../redux/actions/action';
+import { nextPage, prevPage, setPage, updateState, updateOrder} from '../redux/actions/action';
 
 const Main = ({state, nextPage, prevPage, setPage , updateState, updateOrder}) => {
 
@@ -53,43 +53,46 @@ const Main = ({state, nextPage, prevPage, setPage , updateState, updateOrder}) =
                 break;
             default: 
                  obj = state.data;
-                 updateState(obj);
                  updateOrder(obj);
+                 updateState(obj);
                 break;
         }
     }, [state.category]);
 
     useEffect(() => {
-    // This Statement handles the order filter
-    switch(state.order){
-      case 'Ascending':
-          obj = state.filteredData.concat().sort((a, b) => a.name.localeCompare(b.name));     
-          updateOrder(obj);
-         break;
-      case 'Descending': 
-            obj = state.filteredData.concat().sort((a, b) => a.name.localeCompare(b.name)).reverse();
-            updateOrder(obj);
-         break;
-      default: 
-         break;
+    // This Statement handles the date & order filter
+    if(state.order === 'Default'){
+            switch(state.date){
+            case 'Ascending':
+                obj = state.filteredData.concat().sort((a, b) => a.created.localeCompare(b.created));     
+                updateOrder(obj);
+                break;
+            case 'Descending': 
+                obj = state.filteredData.concat().sort((a, b) => a.created.localeCompare(b.created)).reverse();
+                updateOrder(obj);
+                break;
+            default:
+                obj = state.data;
+                updateOrder(obj);
+                break;
+        }
     }
-    }, [state.order]);
-
-    useEffect(() => {
-    // This Statement handles the date filter
-    switch(state.date){
-      case 'Ascending':
-         obj = state.filteredData.concat().sort((a, b) => a.created.localeCompare(b.created));     
-         updateOrder(obj);
-         break;
-      case 'Descending': 
-         obj = state.filteredData.concat().sort((a, b) => a.created.localeCompare(b.created)).reverse();
-         updateOrder(obj);
-         break;
-      default: 
-         break;
-    }
-    }, [state.date]);
+    else {
+            switch(state.order){
+            case 'Ascending':
+                obj = state.filteredData.concat().sort((a, b) => a.name.localeCompare(b.name));     
+                updateOrder(obj);
+                break;
+            case 'Descending': 
+                    obj = state.filteredData.concat().sort((a, b) => a.name.localeCompare(b.name)).reverse();
+                    updateOrder(obj);
+                break;
+            default:
+                
+                break;
+            }
+     }
+    }, [state.date, state.order]);
 
      
     data = state.orderData.filter(item=> item?.name.includes(state.search)).slice((itemsPerPage*(state.page-1)),(itemsPerPage*state.page))
