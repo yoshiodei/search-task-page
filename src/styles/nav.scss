@@ -1,8 +1,246 @@
+@import './mixins';
+
 nav {
-    background-color: lightgrey;
-    height: 20vh;
+    // background-color: lightgrey;
+    height: 34vh;
 }
 
 .form{
-    height: ;
+    height: 100%;
+    // background-color: aquamarine;
+    padding: 0 100px;
+    @include flex-items(center, space-between);
+
+    &__input-div{
+        position: relative;
+        
+
+        &__input{
+            @include area(22vw, 40px);
+            padding: 0 30px;
+            border: 1px solid #dedede;
+
+            &:focus{
+                border: 2px solid #797979;
+                outline: none;
+            }
+        }
+
+        &__custom-icon{
+            position: absolute;
+            right: 12px; 
+            bottom: 5px;
+            color: darkgrey;
+            font-size: 1.5em;
+            z-index: 1;
+            font-weight: 300;
+        }
+    }
+
+    &__select-div{
+        // background-color: lightgrey;
+        @include flex-items(center, flex-end);
+
+        &__header{
+            color: #9e9e9e;
+            font-weight: 600;
+        }
+
+        &__select{
+            @include area(12vw, 40px);
+            margin-left: 18px;
+            border: 0.15em solid #f0f0f0;
+            border-radius: 4px;
+            padding: 0 20px 0 15px;
+            font-weight: 700;
+            color: #3f3f3f;
+            
+            &:focus{
+                border: 2px solid #797979;
+                outline: none;
+            }
+            
+        }
+
+        &__inner-div{
+            position: relative;
+
+            &__label{
+                position: absolute;
+                top: -8px;
+                letter-spacing: 0.4px;
+                left: 33px;
+                color: rgb(87, 86, 86);
+                z-index: 1;
+                background-color: white;
+                font-size: 0.6em;
+                font-weight: 800;
+                padding: 0 5px 5px;
+            }
+        }
+    }
 }
+
+@include large-desktop{
+    nav {
+        // background-color: lightgrey;
+        height: 25vh;
+        @include flex-items(center, center);
+    }
+    
+    .form{
+        width: 1500px;
+        padding: 0 ;
+    
+        &__input-div{
+            &__input{
+                @include area(400px, 40px);
+
+                &:focus{
+                    border: 2px solid #797979;
+                    outline: none;
+                }
+            }
+        }
+
+        &__select-div{
+
+            &__header{
+                font-size: 1.2em;
+            }
+    
+            &__select{
+                @include area(200px, 40px);
+                margin-left: 20px;
+
+                &:focus{
+                    border: 2px solid #797979;
+                    outline: none;
+                }
+            }
+        }
+    }
+    
+}
+
+@include tablet{
+    nav {
+        // background-color: grey;
+        height: 20vh;
+    }
+
+    .form{
+        padding: 0 50px;
+
+        &__input-div{
+            &__input{
+                @include area(28vw, 40px);
+
+            }
+        }
+
+        &__select-div{
+   
+            &__select{
+                margin-left: 15px;
+
+            }
+
+            &__inner-div{
+                position: relative;
+    
+                &__label{
+                    letter-spacing: 0.1px;
+                    left: 30px;
+                    font-size: 0.5em;
+                    padding: 0 5px 5px;
+                }
+            }
+        }
+    }
+}
+
+@include mobile{
+    nav {
+        height: 25vh;
+    }
+
+    .form{
+        height: 100%;
+        // background-color: aquamarine;
+        padding: 0 5vw ;
+        flex-direction: column;
+        @include flex-items(center, center);
+    
+        &__input-div{
+            &__input{
+                @include area(90vw, 40px);
+                margin-bottom: 25px;
+                padding: 0 30px;
+                border: 1px solid #dedede;
+
+                &:focus{
+                    border: 2px solid #797979;
+                    outline: none;
+                }
+            }
+
+            &__custom-icon{
+                right: 12px; 
+                bottom: 30px;
+                color: darkgrey;
+                font-size: 1.5em;
+                z-index: 1;
+                font-weight: 300;
+            }
+        }
+    
+        &__select-div{
+            // background-color: lightgrey;
+            @include flex-items(center, space-between);
+            flex-wrap: wrap;
+    
+            &__header{
+                text-align: left;
+                width: 90vw;
+                margin-bottom: 10px;
+            }
+    
+            &__select{
+                @include area(29vw, 40px);
+                margin-left: unset;
+                padding: 0 10px 0 10px;
+
+                &:focus{
+                    border: 2px solid #797979;
+                    outline: none;
+                }
+            }
+
+            &__inner-div{
+                &__label{
+                    position: absolute;
+                    top: -7px;
+                    letter-spacing: 0.1px;
+                    left: 10px;
+                    background-color: white;
+                    font-size: 0.55em;
+                    padding: 0 5px 5px;
+                }
+            }
+
+        }
+    }
+}
+
+@include small-mobile{
+    nav{
+        margin-bottom: 30px;
+    }
+
+    .form{
+        padding-top: 40px;
+
+    }
+}
+

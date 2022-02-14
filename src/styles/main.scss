@@ -1,0 +1,276 @@
+@import './mixins';
+
+.main{
+    min-height: 56vh;
+    padding-top: 8vh;
+
+    &__header-div{
+        @include flex-items(flex-start, space-between);
+        padding: 0 100px;
+
+        &__h3{
+            font-weight: 500;
+            color: rgb(92, 92, 92);
+        }
+
+        &__h6{
+            font-weight: 600;
+            color: rgb(156, 156, 156)
+        }
+    }
+
+    &__card-list{
+        min-height: 44vh;
+        padding: 25px 100px 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 65px;
+    }
+
+    &__loading-div{
+        background-color: rgb(255, 255, 255);
+        min-height: 35vh;
+        padding: 25px 100px 0;
+        @include flex-items(center, center);
+
+        &__img{
+            @include area(60px, 60px);
+        }
+    }
+
+    &__error-div{
+        background-color: rgb(255, 255, 255);
+        min-height: 35vh;
+        padding: 25px 100px 0;
+        @include flex-items(center, center);
+
+        &__h2{
+            color:rgb(105, 105, 105);
+        }
+
+        &__h4{
+            color:rgb(139, 139, 139);
+            margin-bottom: 10px;
+        }
+
+        &__btn{
+            color:white;
+            background-color: rgb(77, 77, 243);
+            padding: 5px 10px;
+            outline: none;
+            border: 2px solid rgb(77, 77, 243);
+            border-radius: 4px;
+        }
+    }
+
+    &__empty-div{
+        background-color: rgb(255, 255, 255);
+        min-height: 35vh;
+        padding: 25px 100px 0;
+        @include flex-items(center, center);
+
+        &__h2{
+            color:rgb(105, 105, 105);
+        }
+
+        &__h4{
+            color:rgb(139, 139, 139);
+        }
+    }
+
+    &__card{
+        background-color: white;
+        border-radius: 3px;
+        @include area(100%, 220px);
+        box-shadow: 3px 3px 18px rgba(0,0,0,0.04), -3px -3px 18px rgba(0,0,0,0.04);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        &__header{
+            flex: 4;
+            padding: 15px 15px 0 15px; 
+
+            &__text{
+                text-transform: capitalize;
+                font-weight: 700;
+                color: #333447;
+            }
+        }
+
+        &__body{
+            flex: 4;
+            padding: 0 15px;
+
+            &__text{
+                font-size: 0.9em;
+                font-weight: 500;
+                line-height: 1.2;
+                color: #5e5e5e;
+            }
+        }
+
+        &__footer{
+            background-color: #f9f9f9;
+            flex: 2;
+            @include flex-items(center, flex-start);
+            padding: 0 15px;
+
+            &__text{
+                text-decoration: none;
+                font-size: 0.9em;
+                font-weight: 500;
+                color: #08bd37;
+            }
+        }
+    }
+
+    &__footer{
+        height: 20vh;
+        padding: 0 200px;
+        @include flex-items(center, space-between);
+
+        &__div{
+            @include flex-items(center, center);
+
+            &--navigation{
+                cursor: pointer;
+            }
+        }
+
+        &__input{
+            @include area(2.2em, 34px);
+            border: 1px solid #353647;
+            border-radius: 5px;
+            margin-right: 5px;
+            font-size: 1em;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        &__text{
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #353647;
+            
+        }
+
+        &__icon{
+            font-weight: bold;
+            color: #353647;
+            margin: 0 10px;
+            
+        }
+    }
+
+}
+
+@include large-desktop{
+    .main{
+        height: 1000px;
+        padding-top: 8vh;
+        // background-color: #08bd37;
+        @include flex-items(center,flex-start);
+        flex-direction: column;
+
+        &__header-div{
+            @include flex-items(flex-start, space-between);
+            padding: 0;
+            width: 1500px;
+        }
+    
+        &__card-list{
+            min-height: 300px;
+            padding: 25px 0 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            width: 1500px;
+        }
+    
+    
+        &__footer{
+            height: 200px;
+            width: 1500px;
+    
+        }
+    
+
+    }
+}
+
+@include tablet {
+    .main{
+        min-height: 72vh;
+        padding-top: 6vh;
+
+        &__header-div{
+            padding: 0 50px;
+        }
+
+        &__card-list{
+            min-height: 68vh;
+            padding: 25px 50px 0;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+        }
+
+        &__footer{
+            height: 15vh;
+            padding: 0 100px;
+        }
+    
+
+    }
+}
+
+@include mobile{
+    .main{
+        min-height: 67vh;
+        padding-top: 4vh;
+    
+        &__header-div{
+            @include flex-items(flex-start, space-between);
+            padding: 0 5vw;
+        }
+    
+        &__card-list{
+            min-height: 44vh;
+            padding: 25px 5vw 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+    
+        &__card{
+            @include area(100%, 200px);
+        }
+    
+        &__footer{
+            height: 15vh;
+            padding: 0 5vw;
+    
+            &__div{
+                @include flex-items(center, center);
+    
+            }
+    
+            &__input{
+                @include area(2.2em, 32px);
+                font-size: 0.9em;
+            }
+    
+            &__text{
+                font-size: 1em;
+            }
+        }
+    
+    }
+}
+
+
+
+
+
+
+
